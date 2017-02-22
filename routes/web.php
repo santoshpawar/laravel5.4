@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,7 +9,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Task;
+Route::get('/task','TasksController@show');
 
-Route::get('/', function () {
-    return view('welcome');
+ 
+
+//AIzaSyCQX1XE9mrU0MrQq1ygrFQyqTQZnromsx8
+Route::get('/task/{task}', function($id){
+	$test=DB::table('tasks')->find($id);
+	return view('show',compact('test'));
 });
+
+ 
+
+//Route::get('/', 'GoogleSearchController@index');
+
+?>
